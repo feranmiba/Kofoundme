@@ -7,6 +7,7 @@ import SignIn from './component/Auth/SignIn';
 import ForgetPassword from './component/Auth/ForgetPassword';
 import Verify from './component/Auth/Verify';
 import Dashboard from './component/Dashboard/Dashboard';
+import Profile from './component/Auth/Profile';
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -20,6 +21,7 @@ function App() {
     <Route path='/signUp' element={ <Signup /> } />
     <Route path='/forget' element={ <ForgetPassword /> } />
     <Route path='/dashboard' element={ <Dashboard /> } />
+    <Route path='/profile' element={ <Profile /> } />
     </Routes>
      <Fotter />
 

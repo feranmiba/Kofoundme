@@ -1,8 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../Navbar/Navbar'
 import { People, Course, Discuss, Wave, Bag } from '../utils/Data'
 
 function Dashboard() {
+  const [user, setUser] = useState([])
+
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user"); 
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+    console.log(userData);
+  }, []);
+
+  console.log(user)
+
+
   return (
     <div>
 

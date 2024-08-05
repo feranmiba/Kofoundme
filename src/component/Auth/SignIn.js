@@ -2,22 +2,60 @@ import React, { useState } from 'react'
 import { AuthIMG, Logo, Vector  } from '../utils/Data'
 import { FiEyeOff, FiEye } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { ClipLoader} from 'react-spinners'
+import axios from 'axios'
 
 function SignIn() {
+    const url = "https://kofounme-backend.onrender.com/"
+
+  const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
     const [isChecked, setIsChecked] = useState(false);
+    const [loading, setIsLoading] = useState(false);
+    const [message, setMessage] = useState("")
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [user, setUser] = useState({
+      email: "",
+      password: ""
+    })
   
     const handleCheckboxChange = (event) => {
       setIsChecked(event.target.checked);
     };
+
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setUser(prevUser => ({
+        ...prevUser,
+        [name]: value
+      }));
+    };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
+      setIsLoading(true)
       if (isChecked) {
-        // Logic to create the profile
-        console.log("Profile created successfully!");
+        try {
+          const response = await axios.post(`${url}/auth/login`, user);
+          console.log(response.data);
+          if (response.data) {
+            localStorage.setItem('user', JSON.stringify(response.data.profile));
+            localStorage.setItem('token', response.data.accessToken);
+            setMessage(response.data.message);
+            setIsSuccess(true) 
+            navigate("/dashboard")
+             }
+        } catch (error) {
+          setIsLoading(false)
+          setMessage("incorrect password")
+          console.log(error)
+        }
+
+
+      
       } else {
-        console.log("You must agree to the policy to create a profile.");
+        console.log("error pooooooooo");
       }
     };
 
@@ -33,20 +71,27 @@ function SignIn() {
     <section className='mt-5'>
       <p><img src={Logo} alt='logo' /></p> 
 
+
+      {message && (
+        <div className={`fixed bottom-4 right-4 p-4 text-center text-white ${isSuccess ? 'bg-[#28a745]' : 'bg-[#dc3545]'} border rounded-md`}>
+          {message}
+        </div>
+      )}
+
       <div className='mt-14'>
       <h1 className='text-[#1211D7] text-3xl font-semibold pb-3'>Log Into Your  Account </h1>
-      <p className='font-bold text-lg'>Or click here to  <Link to="/signUp"><a className='text-[#4747ff]'>sign Up</a></Link>   if you don't  have an account</p>
+      <p className='font-bold text-lg'>Or click here to  <Link to="/signUp"><a href='/signIn' className='text-[#4747ff]'>sign Up</a></Link>   if you don't  have an account</p>
       </div>
 
       <form className='mt-5' onSubmit={handleSubmit}>
       <div>
       <label>Email</label>
-      <p className='border py-3 px-2 mt-1'> <input type='email' className='outline-none w-[100%] bg-transparent' /> </p> 
+      <p className='border py-3 px-2 mt-1'> <input type='email' className='outline-none w-[100%] bg-transparent' onChange={handleChange} name='email' value={user.email} required/> </p> 
       </div>
       
       <div className='mt-4'>
       <label>Password</label>
-      <p className='border py-3 flex px-2 mt-1'> <input   type={showPassword ? "text" : "password"} className='outline-none w-[100%] bg-transparent' /> 
+      <p className='border py-3 flex px-2 mt-1'> <input   type={showPassword ? "text" : "password"} className='outline-none w-[100%] bg-transparent' onChange={handleChange} name='password' value={user.password}  required/> 
       <div
       className=" inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
       onClick={() => setShowPassword(!showPassword)}
@@ -79,7 +124,7 @@ function SignIn() {
 
       <div className=' mt-5'>
       <Link to='/forget'>
-     <p >Forget Password ?</p> 
+     <p>Forget Password ?</p> 
       </Link>
       </div>
 
@@ -97,7 +142,7 @@ function SignIn() {
         !isChecked ? 'opacity-50 cursor-not-allowed' : ''
       }`}
       >
-      Sign in
+      {loading ? <ClipLoader size={20} color='#ffff' /> : "Sign In"}
       
       </button>
       </div>

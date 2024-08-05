@@ -19,12 +19,13 @@ import People from './image/people_alt_black_24dp.png'
 import Course from './image/course.png'
 import Discuss from './image/disscuss.png'
 import Bag from './image/bag.png'
+import Profiles from './image/profileCreaion.png'
 
 
 export {
     VectorZag, Hero, Wave, Group, Dot, Meet, BigBlue, Connect, Built, Mask, Fund,
     AuthIMG, Logo, Vector, Message1, Collaboration, Connected, People, Course,
-    Discuss, Bag
+    Discuss, Bag, Profiles
 }  
 
 
