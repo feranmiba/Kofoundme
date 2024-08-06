@@ -22,7 +22,7 @@ function Dashboard() {
 
     <Navbar />
 
-    <section className='px-28 pb-24' style={{
+    <section className='px-10 md:px-28 pb-24' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)",
         marginBottom: 15
       }}>
@@ -35,10 +35,10 @@ function Dashboard() {
 
 
 
-        <section className='flex justify-center gap-10 mt-10'>
+        <section className='flex flex-wrap items-center lg:flex-nowrap justify-center gap-10 mt-10'>
 
 
-            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl w-[32%]'>
+            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl lg:w-[32%]'>
             <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={People} alt='peple' width={60} /></p>
             <p>
             <span className='font-bold'>Find A Co-founder</span>
@@ -47,7 +47,7 @@ function Dashboard() {
             Co-founder</p>
             </div>
 
-            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl w-[32%]'>
+            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl lg:w-[32%]'>
             <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={Course} alt='peple' width={50} /></p>
             <p>
             <span className='font-bold'>Start A Course</span>
@@ -55,7 +55,7 @@ function Dashboard() {
             </div>
 
 
-            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl w-[32%]'>
+            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl lg:w-[32%]'>
             <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={Discuss} alt='peple' width={50} /></p>
             <p>
             <span className='font-bold'>Find a co-founder</span>
@@ -102,7 +102,7 @@ function Dashboard() {
 
 
 
-    <section  className='px-28 py-24' style={{
+    <section  className='px-10 md:px-28 py-24' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)",
         marginBottom: 15
       }}>
@@ -116,7 +116,7 @@ function Dashboard() {
   
   
       <section className='self-start'>
-      <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl self-start transform -translate-x-10'>
+      <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl self-start transform lg:-translate-x-10'>
       <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={People} alt='peple' width={30} /></p>
       <p>
       <span className='font-bold'>Find A Co-founder</span>
@@ -148,7 +148,7 @@ function Dashboard() {
     
     <section className='flex flex-wrap-reverse md:flex-nowrap justify-between gap-20'>
 
-    <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl self-start mt-14 w-[50%]'>
+    <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl self-start mt-14 lg:w-[50%]'>
     <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={Bag} alt='peple' width={80} /></p>
     <p>
     <span className='font-bold'>Find an investor</span>

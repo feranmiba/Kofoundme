@@ -1,6 +1,7 @@
 import React from 'react'
 import { VectorZag, Hero, Wave, Group } from '../utils/Data'
 import Body from './Body'
+import MobileNav from '../Navbar/Mobilenavbar'
 import Navbar from '../Navbar/Navbar'
 
 function Home() {
@@ -8,12 +9,13 @@ function Home() {
     <div>
 
     <Navbar />
+    <MobileNav />
 
     <section className='px-5 md:px-28'>
     <div className='flex flex-wrap-reverse md:flex-nowrap justify-between'>
 
 
-    <div className='w-[100%] md:w-[50%] mt-32'>
+    <div className='w-[100%] md:w-[50%] mt-10 lg:mt-32'>
     <div className='flex gap-2'>
     <p className='text-[#1211D7] font-bold text-5xl leading-[70px]'> <span className='text-[#060606]'>Find</span>  Your <br /> <span className='text-[#060606]'>Next</span> Cofounder</p>
     <p><img src={VectorZag} alt='dd' /></p>
@@ -39,7 +41,7 @@ function Home() {
     <p className=''> <img src={Group} alt='hhh' className='absolute mt-28 right-[400px]' /> </p>
     <div>
 
-     <img src={Hero} alt='hero'  className='w-[80%] z-50' /> 
+     <img src={Hero} alt='hero'  className='lg:w-[80%] z-50' /> 
      <p className='z-0'><img src={Wave} alt='wave' className='transform -translate-y-full -z-10 absolute right-2' /></p>
      </div>
     </div>

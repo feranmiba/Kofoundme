@@ -80,10 +80,10 @@ function Body() {
 
     <section className='px-5 md:px-28 pb-36 bg-white'>
     
-    <section className='flex justify-between gap-24'>
+    <section className='flex flex-wrap lg:flex-nowrap justify-between gap-24'>
       <div className='bg-white'>
 
-      <div> <img src={Dot} alt='had' className='transform translate-x-40'/> </div>
+      <div> <img src={Dot} alt='had' className='transform translate-x-40 hidden lg:block'/> </div>
       <div className='mt-20'>
       <p className='bg-[#FBF8EF] text-3xl font-extrabold '>Join the Community  and Get All These Benefits</p>
       </div>
@@ -92,14 +92,14 @@ function Body() {
       </div>
 
 
-      <section className='flex justify-between flex-wrap gap-10' style={{
+      <section className='flex justify-between flex-wrap  gap-10' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)"
       }}>
 
 
 
 
-        <div className='bg-white shadow-2xl flex flex-col gap-6 justify-center items-center text-center py-6 rounded-xl  px-5 w-[45%] transform translate-y-32'>
+        <div className='bg-white shadow-2xl flex flex-col gap-6 justify-center items-center text-center py-6 rounded-xl  px-5 w-[45%] transform lg:translate-y-32'>
           
         
        <p className='bg-[#F1F7FF] px-5 py-4 rounded-xl'>  <img src={Message1} alt='hgs' /> </p> 
@@ -118,7 +118,7 @@ function Body() {
          </div>
 
 
-         <div className='bg-white shadow-2xl flex flex-col gap-6 justify-center items-center text-center py-6 rounded-xl  px-5 w-[45%] transform translate-y-32'>
+         <div className='bg-white shadow-2xl flex flex-col gap-6 justify-center items-center text-center py-6 rounded-xl  px-5 w-[45%] transform lg:translate-y-32'>
           
         
         <p className='bg-[#F1F7FF] px-5 py-4 rounded-xl'>  <img src={Connected} alt='hgs' /> </p> 
