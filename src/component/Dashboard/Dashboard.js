@@ -1,26 +1,36 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '../Navbar/Navbar'
 import { People, Course, Discuss, Wave, Bag } from '../utils/Data'
+import LoggedNav from '../Navbar/LoggedNav';
+import MobileLogged from '../Navbar/MobileLogged';
+
+
 
 function Dashboard() {
-  const [user, setUser] = useState([])
-
+  const [user, setUser] = useState(null); // Initialize user as null
 
   useEffect(() => {
-    const userData = localStorage.getItem("user"); 
-    if (userData) {
-      setUser(JSON.parse(userData));
-    }
-    console.log(userData);
+    const userData = localStorage.getItem("UserProfile");
+    const parsedUserData = JSON.parse(userData);
+    console.log("Raw userData from localStorage:", parsedUserData.first_name); 
+    setUser(parsedUserData); 
   }, []);
 
-  console.log(user)
+  console.log(user);
 
 
   return (
     <div>
 
-    <Navbar />
+    <LoggedNav  
+      name={user.first_name}
+      lastname={user.last_name}
+      picture={user.picture}
+      />
+      <MobileLogged 
+      picture={user.picture}
+      />
+
+  
 
     <section className='px-10 md:px-28 pb-24' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)",
@@ -28,7 +38,7 @@ function Dashboard() {
       }}>
         <div className='flex justify-center text-center py-14'>
         <div className='text-center justify-center flex flex-col items-center'>
-        <h1 className='text-5xl font-bold pb-3'>Hi Ola Sam</h1>
+        <h1 className='text-5xl font-bold pb-3'>Hi {user.first_name}</h1>
         <p className='border-t-2 w-[30%] border-[#7A4BEF]'></p>
         </div>
         </div>

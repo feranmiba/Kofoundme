@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Profile = () => {
   const url = "https://kofounme-backend.onrender.com/"
 
+
   const navigate = useNavigate()
 
   const [user, setUser] = useState({
@@ -48,6 +49,7 @@ const Profile = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, isLoading] = useState(false)
+  const [profile, setProfile] = useState()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +117,7 @@ const Profile = () => {
 
   const handleNextStep = (e) => {
     e.preventDefault();
-    if (currentStep === 0 && formData.name) {
+    if (currentStep === 0 && formData.first_name && formData.last_name && formData.pronouns && formData.city && formData.tagline) {
       setCurrentStep(1);
     } else if (currentStep === 1 && formData.picture) {
       setCurrentStep(2);
@@ -150,9 +152,10 @@ const Profile = () => {
       console.log(response.data);
   
       if (response.data) {
-        localStorage.setItem("UserProfile", response.data.profile);
+        localStorage.setItem("UserProfile", JSON.stringify(response.data.profile)); 
         setIsSuccess(true);
         setMessage(response.data.message);
+        console.log(response.data.message)
         navigate("/dashboard");
       } else {
         setMessage('Failed to create profile');
@@ -179,7 +182,7 @@ const Profile = () => {
     <div> <img src={Logo} alt='jhb' /> </div>
     <section className='flex justify-between gap-10  mt-10'>
       <div className="flex flex-col items-center gap-20 mb-4">
-        <div className={`rounded-full w-10 h-10 flex items-center justify-center ${formData.name ? 'bg-[#1c2697]' : 'border rounded-full px-5 py-3'}`}>
+        <div className={`rounded-full w-10 h-10 flex items-center justify-center ${formData.first_name && formData.last_name && formData.pronouns && formData.city && formData.tagline ? 'bg-[#1c2697]' : 'border rounded-full px-5 py-3'}`}>
           <FiCheck className='text-white'/>
         </div>
         <div className={`rounded-full w-10 h-10 flex items-center justify-center ${formData.picture ? 'bg-[#1c2697]' : 'border rounded-full px-5 py-3'} `}>
@@ -266,9 +269,9 @@ const Profile = () => {
         </div>
 
 
-        <div>
+        {currentStep === 0 && (  <div>
         <button className='border px-6 py-1 bg-[#1211D7] text-[#F1F1F1]' onClick={handleNextStep}>Save</button>
-        </div>
+        </div> )}
 
 
               </div>

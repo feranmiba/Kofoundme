@@ -20,12 +20,15 @@ import Course from './image/course.png'
 import Discuss from './image/disscuss.png'
 import Bag from './image/bag.png'
 import Profiles from './image/profileCreaion.png'
+import olaSam from './image/olaSam.png'
+import Mail from './image/email.png'
+import Peoples from './image/peoples.png'
 
 
 export {
     VectorZag, Hero, Wave, Group, Dot, Meet, BigBlue, Connect, Built, Mask, Fund,
     AuthIMG, Logo, Vector, Message1, Collaboration, Connected, People, Course,
-    Discuss, Bag, Profiles
+    Discuss, Bag, Profiles, olaSam, Mail, Peoples
 }  
 
 
