@@ -60,10 +60,7 @@ function MobileLogged({ picture }) {
               <p>{nav.name}</p>
             </NavLink>
           ))}
-          <div className='flex flex-col justify-center gap-5 text-base'>
-          <Link to='/signIn'><button className='border py-3 px-3 w-[100%] rounded-xl  font-readex'> Sign in</button></Link>
-      <Link to='/signUp'> <button className='border py-3 px-3 font-readex  w-[100%] rounded-xl bg-[#1211D7] text-[#F1F1F1]'>Sign Up</button> </Link>
-          </div>
+         
         </div>
       </div>
     </motion.div>
