@@ -7,7 +7,7 @@ function Fotter() {
     <div>
 
     <div className='bg-[#ffffff] text-black not-italic font-readex '>
-    <footer className=' py-28 px-3 md:px-20 flex justify-between flex-wrap lg:flex-nowrap gap-10 lg:gap-0'>
+    <footer className=' py-28 px-12 md:px-20 flex justify-between flex-wrap lg:flex-nowrap gap-10 lg:gap-0'>
 
 
     <div>

@@ -9,13 +9,39 @@ import axios from 'axios';
 
 
 function Dashboard() {
-    const url = "https://kofounme-backend.onrender.com/"
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+    // const url = "https://kofounme-backend.onrender.com/"
+    const url ="http://localhost:3000/"
 
 
-  const Location = useLocation()
   
-  const user = Location.state.profiles
-  console.log(user)
+
+    const [user, setUsers] = useState({
+      user_id: "",
+      first_name: '',
+      last_name: '',
+      pronouns: '',
+      picture: null,
+      tagline: '',
+      role: '',
+      looking_for: '',
+      business: '',
+      skill: '',
+      interest: '',
+    });
+
+    const userData = localStorage.getItem("UserProfile")
+   const parsedUserData = JSON.parse(userData);
+
+   useEffect(() => {
+    setUsers(parsedUserData); 
+  }, [user]);
+
+   console.log(user.first_name)
+   console.log("its working", user.skill)
+   console.log("user is", user.user_id)
   
 
 
@@ -33,7 +59,7 @@ function Dashboard() {
 
   
 
-    <section className='px-10 md:px-28 pb-24' style={{
+    <section className='px-12 md:px-28 pb-24' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)",
         marginBottom: 15
       }}>
@@ -58,7 +84,7 @@ function Dashboard() {
             Co-founder</p>
             </div>
 
-            <div className=' bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl lg:w-[32%]'>
+            <div className=' w-[100%] bg-[#ffff] shadow-2xl py-4 px-3 flex gap-4 rounded-xl lg:w-[32%]'>
             <p className='bg-[#1211D7] py-4 px-4 rounded-lg self-start'><img src={Course} alt='peple' width={50} /></p>
             <p>
             <span className='font-bold'>Start A Course</span>
@@ -91,7 +117,7 @@ function Dashboard() {
 
 
 
-    <section className='px-5 md:px-28 py-20 bg-white'>
+    <section className='px-12 md:px-28 py-20 bg-white'>
     
     <section className='flex flex-wrap-reverse md:flex-nowrap justify-between gap-20'>
     <div className='md:w-[50%] mt-10'>
@@ -113,7 +139,7 @@ function Dashboard() {
 
 
 
-    <section  className='px-10 md:px-28 py-24' style={{
+    <section  className='px-12 md:px-28 py-24' style={{
         backgroundColor: "linear-gradient(to right, #FFFFFF 0%, #F6F3FE 100%)",
         marginBottom: 15
       }}>
@@ -155,7 +181,7 @@ function Dashboard() {
 
 
 
-    <section className='px-5 md:px-28 py-20 bg-white'>
+    <section className='px-12 md:px-28 py-20 bg-white'>
     
     <section className='flex flex-wrap-reverse md:flex-nowrap justify-between gap-20'>
 

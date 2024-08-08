@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AuthIMG, Logo, Vector } from '../utils/Data';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,13 @@ import { ClipLoader } from 'react-spinners';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-  const url = "https://kofounme-backend.onrender.com/"
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // const url = "https://kofounme-backend.onrender.com/"
+  const url ="http://localhost:3000/"
+
 
   const [showPassword, setShowPassword] = useState(false);
   const [showVerify, setShowVerify] = useState(false);

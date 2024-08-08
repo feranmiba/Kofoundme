@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Profile = () => {
-  const url = "https://kofounme-backend.onrender.com/"
-  // const url ="http://localhost:3000/"
+  // const url = "https://kofounme-backend.onrender.com/"
+  const url ="http://localhost:3000/"
 
 
 
@@ -150,10 +150,10 @@ const Profile = () => {
       console.log(response.data);
   
       if (response.data) {
-      const profile =   localStorage.setItem("UserProfile", JSON.stringify(response.data.userID)); 
+       localStorage.setItem("UserProfile", JSON.stringify(response.data.userID)); 
         setIsSuccess(true);
         setMessage(response.data.message);
-        navigate("/dashboard", {state: {profiles: response.data.userID}});
+        navigate("/dashboard");
       } else {
         setMessage('Failed to create profile');
       }

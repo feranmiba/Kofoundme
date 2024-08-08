@@ -8,7 +8,9 @@ import { Nav } from '../utils/Data';
 
 function MobileLogged({ picture }) {
 
-    const url = "https://kofounme-backend.onrender.com/"
+    // const url = "https://kofounme-backend.onrender.com/"
+    const url ="http://localhost:3000/"
+
   const [visible, setVisible] = useState(false)
  
 
@@ -21,8 +23,8 @@ function MobileLogged({ picture }) {
   <div className='relative'>
     <section className='flex justify-between lg:hidden'>
      <Link to="/"><p className='w-[80%]'> <img src={Logo} alt='logo' /></p></Link> 
-     <div className='flex gap-4'>
-     <p className='w-[30%]'><img src={`${url}${picture}`} alt='profile_pic' className='rounded-full w-[150px] h-[60px]' /></p>
+     <div className='flex self-start gap-4'>
+     <p className='w-[50%]'><img src={`${url}${picture}`} alt='profile_pic' className='rounded-full w-[80px] h-[60px]' /></p>
      <p  onClick={toggleMenu}> <FaBars className='text-2xl mt-5'/> </p>
      </div>
     </section>  

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AuthIMG, Logo, Vector  } from '../utils/Data'
 import { FiEyeOff, FiEye } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
@@ -7,8 +7,11 @@ import { ClipLoader} from 'react-spinners'
 import axios from 'axios'
 
 function SignIn() {
-    const url = "https://kofounme-backend.onrender.com/"
-      // const url ="http://localhost:3000/"
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+    // const url = "https://kofounme-backend.onrender.com/"
+      const url ="http://localhost:3000/"
 
   const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
@@ -36,17 +39,21 @@ function SignIn() {
     const handleSubmit = async (event) => {
       event.preventDefault();
       setIsLoading(true)
+
       if (isChecked) {
         try {
-          const response = await axios.post(`${url}/auth/login`, user);
+          console.log(user)
+          const response = await axios.post(`${url}auth/login`, user);
           console.log(response.data);
+
           if (response.data) {
-            localStorage.setItem('user', JSON.stringify(response.data.profile));
+            localStorage.setItem("UserProfile", JSON.stringify(response.data.userID)); 
             localStorage.setItem('token', response.data.accessToken);
             setMessage(response.data.message);
             setIsSuccess(true) 
             navigate("/dashboard")
-             }
+            }
+
         } catch (error) {
           setIsLoading(false)
           setMessage("incorrect password")
