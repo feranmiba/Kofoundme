@@ -1,21 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
+import { useEffect } from 'react';
 import { People, Course, Discuss, Wave, Bag } from '../utils/Data'
 import LoggedNav from '../Navbar/LoggedNav';
 import MobileLogged from '../Navbar/MobileLogged';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function Dashboard() {
-  const [user, setUser] = useState(null); // Initialize user as null
+    const url = "https://kofounme-backend.onrender.com/"
 
-  useEffect(() => {
-    const userData = localStorage.getItem("UserProfile");
-    const parsedUserData = JSON.parse(userData);
-    console.log("Raw userData from localStorage:", parsedUserData.first_name); 
-    setUser(parsedUserData); 
-  }, []);
 
-  console.log(user);
+  const Location = useLocation()
+  
+  const user = Location.state.profiles
+  console.log(user)
+  
 
 
   return (

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const url = "https://kofounme-backend.onrender.com/"
+  // const url ="http://localhost:3000/"
+
 
 
   const navigate = useNavigate()
@@ -144,19 +146,14 @@ const Profile = () => {
     }
   
     try {
-      const response = await axios.post(`${url}profile/create-profile`, formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(`${url}profile/create-profile`, formDataToSend);
       console.log(response.data);
   
       if (response.data) {
-        localStorage.setItem("UserProfile", JSON.stringify(response.data.profile)); 
+      const profile =   localStorage.setItem("UserProfile", JSON.stringify(response.data.userID)); 
         setIsSuccess(true);
         setMessage(response.data.message);
-        console.log(response.data.message)
-        navigate("/dashboard");
+        navigate("/dashboard", {state: {profiles: response.data.userID}});
       } else {
         setMessage('Failed to create profile');
       }
