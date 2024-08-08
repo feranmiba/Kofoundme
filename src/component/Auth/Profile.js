@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const url = "https://kofounme-backend.onrender.com/"
-  // const url ="http://localhost:3000/"
+  // const url ="https://ticket-feranmibas-projects.vercel.app/"
 
 
 
@@ -40,7 +40,6 @@ const Profile = () => {
     pronouns: '',
     picture: null,
     tagline: '',
-    class: '',
     role: '',
     looking_for: '',
     business: '',
@@ -74,6 +73,11 @@ const Profile = () => {
   const handleProfilePic = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
+  
+    if (file && file.size > 5 * 1024 * 1024) { // 5MB size limit
+      setMessage('File size exceeds 5MB. Please upload a smaller file.');
+      return;
+    }
     setFormData((prevData) => ({
       ...prevData,
       picture: file,
@@ -153,7 +157,7 @@ const Profile = () => {
        localStorage.setItem("UserProfile", JSON.stringify(response.data.userID)); 
         setIsSuccess(true);
         setMessage(response.data.message);
-        navigate("/dashboard");
+        navigate("/dashboard")
       } else {
         setMessage('Failed to create profile');
       }

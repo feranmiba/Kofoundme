@@ -9,7 +9,7 @@ import { Nav } from '../utils/Data';
 function MobileLogged({ picture }) {
 
     const url = "https://kofounme-backend.onrender.com/"
-    // const url ="http://localhost:3000/"
+    // const url ="https://ticket-feranmibas-projects.vercel.app/"
 
   const [visible, setVisible] = useState(false)
  

@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 import { People, Course, Discuss, Wave, Bag } from '../utils/Data'
 import LoggedNav from '../Navbar/LoggedNav';
 import MobileLogged from '../Navbar/MobileLogged';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
+
 
 
 
@@ -12,8 +11,7 @@ function Dashboard() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-    const url = "https://kofounme-backend.onrender.com/"
-    // const url ="http://localhost:3000/"
+    
 
 
   
@@ -37,7 +35,7 @@ function Dashboard() {
 
    useEffect(() => {
     setUsers(parsedUserData); 
-  }, [user]);
+  }, [parsedUserData]);
 
    console.log(user.first_name)
    console.log("its working", user.skill)

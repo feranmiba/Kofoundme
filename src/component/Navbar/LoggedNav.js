@@ -7,6 +7,7 @@ import { FaUserFriends } from "react-icons/fa";
 
 function LoggedNav({ name, lastname, picture }) {
  const url = "https://kofounme-backend.onrender.com/"
+//  const url = "https://ticket-feranmibas-projects.vercel.app/"
   return (
     <div>
 

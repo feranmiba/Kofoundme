@@ -12,7 +12,7 @@ function Signup() {
   }, []);
 
   const url = "https://kofounme-backend.onrender.com/"
-  // const url ="http://localhost:3000/"
+  // const url ="https://ticket-feranmibas-projects.vercel.app/"
 
 
   const [showPassword, setShowPassword] = useState(false);
