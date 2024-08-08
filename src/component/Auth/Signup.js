@@ -11,8 +11,8 @@ function Signup() {
     window.scrollTo(0, 0);
   }, []);
 
-  // const url = "https://kofounme-backend.onrender.com/"
-  const url ="http://localhost:3000/"
+  const url = "https://kofounme-backend.onrender.com/"
+  // const url ="http://localhost:3000/"
 
 
   const [showPassword, setShowPassword] = useState(false);

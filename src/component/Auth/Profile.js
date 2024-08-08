@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Profile = () => {
-  // const url = "https://kofounme-backend.onrender.com/"
-  const url ="http://localhost:3000/"
+  const url = "https://kofounme-backend.onrender.com/"
+  // const url ="http://localhost:3000/"
 
 
 

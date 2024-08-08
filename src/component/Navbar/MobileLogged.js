@@ -8,8 +8,8 @@ import { Nav } from '../utils/Data';
 
 function MobileLogged({ picture }) {
 
-    // const url = "https://kofounme-backend.onrender.com/"
-    const url ="http://localhost:3000/"
+    const url = "https://kofounme-backend.onrender.com/"
+    // const url ="http://localhost:3000/"
 
   const [visible, setVisible] = useState(false)
  
